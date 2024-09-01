@@ -244,23 +244,36 @@ UIGradient_2.Parent = BendruImage
 UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient_3.Parent = ScreenGui
 
+frame1.BackgroundTransparency = 1
+imageLabel.ImageTransparency = 1
+textLabel.TextTransparency = 1
+uiStroke.Transparency = 1
 
--- Function to fade in a GUI element
-local function fadeIn(element, duration)
-    element.Visible = true
-    for i = 1, 0, -0.05 do
-        element.BackgroundTransparency = i
-        element.TextTransparency = i
-        element.ImageTransparency = i
-        wait(duration / 20)
-    end
-    element.BackgroundTransparency = 0
-    element.TextTransparency = 0
-    element.ImageTransparency = 0
+-- Khoảng cách di chuyển frame1 và frame2 sang bên trái
+local moveDistance = 100
+
+-- Kích thước cuối cùng của frame2 khi kéo dãn
+local targetSizeX = 474
+local targetSizeY = frame2.Size.Y.Offset -- Giữ nguyên chiều cao hiện tại của frame2
+
+local moveTime = 1.2
+
+-- Hàm hiệu ứng hiện dần một đối tượng
+local function fadeIn(instance, fadeTime, property)
+    local fadeTweenInfo = TweenInfo.new(
+        fadeTime, -- Thời gian tween
+        Enum.EasingStyle.Quad, -- Phong cách easing
+        Enum.EasingDirection.Out -- Hướng easing
+    )
+    
+    local goal = {}
+    goal[property] = 0
+    local fadeTween = TweenService:Create(instance, fadeTweenInfo, goal)
+    fadeTween:Play()
+    fadeTween.Completed:Wait() -- Đợi cho đến khi tween hoàn thành
 end
 
--- Fade in the 'Ui' first
-fadeIn(Ui, 2) -- Thời gian hiện dần là 2 giây
-
--- After 'Ui' has fully faded in, fade in 'Bendru'
-fadeIn(BendruImage, 2) -- Thời gian hiện dần là 2 giây
+fadeIn(frame1, 0.6, "BackgroundTransparency")
+fadeIn(imageLabel, 0.6, "ImageTransparency")
+fadeIn(textLabel, 0.6, "TextTransparency")
+fadeIn(uiStroke, 0.6, "Transparency")
