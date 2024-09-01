@@ -273,6 +273,7 @@ local function fadeIn(instance, fadeTime, property)
     fadeTween.Completed:Wait() -- Đợi cho đến khi tween hoàn thành
 end
 
+--fadein
 fadeIn(frame1, 0.6, "BackgroundTransparency")
 fadeIn(imageLabel, 0.6, "ImageTransparency")
 fadeIn(textLabel, 0.6, "TextTransparency")
