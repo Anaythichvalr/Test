@@ -244,10 +244,10 @@ UIGradient_2.Parent = BendruImage
 UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient_3.Parent = ScreenGui
 
-frame1.BackgroundTransparency = 1
-imageLabel.ImageTransparency = 1
-textLabel.TextTransparency = 1
-uiStroke.Transparency = 1
+Ui.BackgroundTransparency = 1
+BendruImage.ImageTransparency = 1
+KaitunMode.TextTransparency = 1
+UICorner_9.Transparency = 1
 
 -- Khoảng cách di chuyển frame1 và frame2 sang bên trái
 local moveDistance = 100
@@ -274,7 +274,7 @@ local function fadeIn(instance, fadeTime, property)
 end
 
 --fadein
-fadeIn(frame1, 0.6, "BackgroundTransparency")
-fadeIn(imageLabel, 0.6, "ImageTransparency")
-fadeIn(textLabel, 0.6, "TextTransparency")
-fadeIn(uiStroke, 0.6, "Transparency")
+fadeIn(Ui, 0.6, "BackgroundTransparency")
+fadeIn(BendruImage, 0.6, "ImageTransparency")
+fadeIn(KaitunMode, 0.6, "TextTransparency")
+fadeIn(UICorner_9, 0.6, "Transparency")
