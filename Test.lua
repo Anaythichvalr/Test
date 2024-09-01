@@ -247,7 +247,6 @@ UIGradient_3.Parent = ScreenGui
 Ui.BackgroundTransparency = 1
 BendruImage.ImageTransparency = 1
 KaitunMode.TextTransparency = 1
-UICorner_9.Transparency = 1
 
 -- Khoảng cách di chuyển frame1 và frame2 sang bên trái
 local moveDistance = 100
@@ -258,23 +257,21 @@ local targetSizeY = frame2.Size.Y.Offset -- Giữ nguyên chiều cao hiện t�
 
 local moveTime = 1.2
 
--- Hàm hiệu ứng hiện dần một đối tượng
-local function fadeIn(instance, fadeTime, property)
-    local fadeTweenInfo = TweenInfo.new(
-        fadeTime, -- Thời gian tween
-        Enum.EasingStyle.Quad, -- Phong cách easing
-        Enum.EasingDirection.Out -- Hướng easing
-    )
-    
-    local goal = {}
-    goal[property] = 0
-    local fadeTween = TweenService:Create(instance, fadeTweenInfo, goal)
-    fadeTween:Play()
-    fadeTween.Completed:Wait() -- Đợi cho đến khi tween hoàn thành
+local function fadeIn(element, duration)
+    element.Visible = true
+    for i = 1, 0, -0.05 do
+        element.BackgroundTransparency = i
+        element.TextTransparency = i
+        element.ImageTransparency = i
+        wait(duration / 20)
+    end
+    element.BackgroundTransparency = 0
+    element.TextTransparency = 0
+    element.ImageTransparency = 0
 end
 
---fadein
-fadeIn(Ui, 0.6, "BackgroundTransparency")
-fadeIn(BendruImage, 0.6, "ImageTransparency")
-fadeIn(KaitunMode, 0.6, "TextTransparency")
-fadeIn(UICorner_9, 0.6, "Transparency")
+-- Fade in the 'Ui' first
+fadeIn(Ui, 1) -- Thời gian hiện dần là 2 giây
+
+-- After 'Ui' has fully faded in, fade in 'Bendru'
+fadeIn(ImageBendru, 1)
