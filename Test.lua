@@ -28,7 +28,8 @@ local BendruImage = Instance.new("ImageLabel")
 local UIGradient_2 = Instance.new("UIGradient")
 local UIGradient_3 = Instance.new("UIGradient")
 
--- Properties:
+--Properties:
+
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -161,8 +162,8 @@ ButtonOfSetting.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ButtonOfSetting.BackgroundTransparency = 1.000
 ButtonOfSetting.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ButtonOfSetting.BorderSizePixel = 0
-ButtonOfSetting.Position = UDim2.new(0.450211853, 0, 0.488466024, 0)
-ButtonOfSetting.Size = UDim2.new(0, 37, 0, 37)
+ButtonOfSetting.Position = UDim2.new(0.445974588, 0, 0.475877196, 0)
+ButtonOfSetting.Size = UDim2.new(0, 45, 0, 42)
 ButtonOfSetting.SizeConstraint = Enum.SizeConstraint.RelativeXX
 ButtonOfSetting.Font = Enum.Font.SourceSans
 ButtonOfSetting.Text = ""
@@ -174,14 +175,14 @@ UICorner_7.Parent = ButtonOfSetting
 
 Select.Name = "Select"
 Select.Parent = Bendru
-Select.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Select.BackgroundTransparency = 0.850
+Select.BackgroundColor3 = Color3.fromRGB(185, 185, 185)
+Select.BackgroundTransparency = 0.500
 Select.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Select.BorderSizePixel = 0
-Select.Position = UDim2.new(0.455000013, 0, 0.405000001, 0)
-Select.Size = UDim2.new(0, 30, 0, 30)
+Select.Position = UDim2.new(0.4523305, 0, 0.401315778, 0)
+Select.Size = UDim2.new(0, 34, 0, 34)
 
-UICorner_8.CornerRadius = UDim.new(0, 10)
+UICorner_8.CornerRadius = UDim.new(0, 9)
 UICorner_8.Parent = Select
 
 Hello.Name = "Hello"
@@ -190,11 +191,10 @@ Hello.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Hello.BackgroundTransparency = 1.000
 Hello.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Hello.BorderSizePixel = 0
-Hello.Position = UDim2.new(0.421000004, 0, 0.300999999, 0)
-Hello.Size = UDim2.new(0, 146, 0, 58)
-Hello.Visible = false
-Hello.Font = Enum.Font.Unknown
-Hello.Text = "Hello"
+Hello.Position = UDim2.new(0.423000008, 0, 0.31400001, 0)
+Hello.Size = UDim2.new(0, 143, 0, 19)
+Hello.Font = Enum.Font.FredokaOne
+Hello.Text = ""
 Hello.TextColor3 = Color3.fromRGB(255, 255, 255)
 Hello.TextScaled = true
 Hello.TextSize = 14.000
@@ -206,11 +206,10 @@ Welcome.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Welcome.BackgroundTransparency = 1.000
 Welcome.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Welcome.BorderSizePixel = 0
-Welcome.Position = UDim2.new(0.421000004, 0, 0.277999997, 0)
-Welcome.Size = UDim2.new(0, 146, 0, 58)
-Welcome.Visible = false
-Welcome.Font = Enum.Font.Unknown
-Welcome.Text = "Welcome"
+Welcome.Position = UDim2.new(0.425000012, 0, 0.349999994, 0)
+Welcome.Size = UDim2.new(0, 143, 0, 12)
+Welcome.Font = Enum.Font.FredokaOne
+Welcome.Text = "Welcome to Bendru Hub"
 Welcome.TextColor3 = Color3.fromRGB(255, 255, 255)
 Welcome.TextScaled = true
 Welcome.TextSize = 14.000
@@ -218,28 +217,26 @@ Welcome.TextWrapped = true
 
 Ui.Name = "Ui"
 Ui.Parent = Bendru
-Ui.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Ui.Active = true
+Ui.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
 Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Ui.BorderSizePixel = 0
-Ui.Position = UDim2.new(0.464400113, 0, 0.604000032, 0)
-Ui.Size = UDim2.new(0, 61, 0, 61)
-Ui.Visible = true
+Ui.Position = UDim2.new(0.42253086, 0, 0.242731661, 0)
+Ui.Size = UDim2.new(0, 145, 0, 231)
 
-UICorner_9.CornerRadius = UDim.new(0, 10)
 UICorner_9.Parent = Ui
 
 BendruImage.Name = "BendruImage"
-BendruImage.Parent = Bendru
+BendruImage.Parent = Ui
 BendruImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 BendruImage.BackgroundTransparency = 1.000
 BendruImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BendruImage.BorderSizePixel = 0
-BendruImage.Position = UDim2.new(0.427000001, 0, 0.452999979, 0)
-BendruImage.Size = UDim2.new(0, 133, 0, 81)
-BendruImage.Image = "http://www.roblox.com/asset/?id=18179829982"
+BendruImage.Position = UDim2.new(-0.0068965517, 0, 0, 0)
+BendruImage.Size = UDim2.new(0, 145, 0, 132)
+BendruImage.Image = "http://www.roblox.com/asset/?id=18115364062"
 
-UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.20, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient_2.Parent = BendruImage
 
-UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
-UIGradient_3.Parent = ScreenGui
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.06, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.93, Color3.fromRGB(242, 242, 242)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
+UIGradient_3.Parent = Ui
