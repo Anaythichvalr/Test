@@ -247,6 +247,7 @@ BendruImage.ImageTransparency = 1
 
 TurnMenu.Visible = false
 KaitunMode.Visible = false
+Menu.Visible = false
 
 local function fadeIn(instance, fadeTime,property)
 local fadeTweenInfo = TweenInfo.new(
@@ -264,12 +265,6 @@ end
 
 fadeIn(Ui, 1, "BackgroundTransparency")
 wait(0.1)
-textLabel.Visible = true
-Tab.Visible = true
-HouseOfTab.Visible = true
-SettingOfTab.Visible = true
-Select.Visible = true
-Hello.Visible = true
-uiOfMenu.Enabled = true
-Welcome.Visible = true
+KaitunMode.Visible = true
+Menu.Visible = true
 fadeIn(BendruImage, 1,"ImageTransparency")
