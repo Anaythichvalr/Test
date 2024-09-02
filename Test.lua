@@ -244,16 +244,35 @@ UIGradient_3.Parent = Ui
 Ui.BackgroundTransparency = 1
 Menu.BackgroundTransparency = 1
 BendruImage.ImageTransparency = 1
-uiStroke.Transparency = 1
-	
-imageButton.Visible = false
-textLabel.Visible = false
-Tab.Visible = false
-HouseOfTab.Visible = false
-SettingOfTab.Visible = false
-Select.Visible = false
-button1OfTab.Visible = false
-button2OfTab.Visible = false
-Hello.Visible = false
-uiOfMenu.Enabled = false
-Welcome.Visible = false
+
+TurnMenu.Visible = false
+KaitunMode.Visible = false
+
+local function fadeIn(instance, fadeTime,property)
+local fadeTweenInfo = TweenInfo.new(
+	fadeTime,
+		Enum.EasingStyle.Quad, 
+		Enum.EasingDirection.Out
+	)
+
+	local goal = {}
+	goal[property] = 0
+	local fadeTween = TweenService:Create(instance, fadeTweenInfo, goal)
+ fadeTween:Play()
+	fadeTween.Completed:Wait()
+end
+
+fadeIn(frame1, fadeTime1, "BackgroundTransparency")
+	wait(waitTimeAfterFade1)
+	wait(0.1)
+	textLabel.Visible = true
+	Tab.Visible = true
+	HouseOfTab.Visible = true
+	SettingOfTab.Visible = true
+	Select.Visible = true
+	Hello.Visible = true
+	uiOfMenu.Enabled = true
+	Welcome.Visible = true
+	fadeIn(imageLabel, fadeTime2, "ImageTransparency")
+	fadeIn(frame2, 0.01, "BackgroundTransparency")
+	fadeIn(uiStroke, 0.3, "Transparency")
