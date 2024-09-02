@@ -223,7 +223,7 @@ Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Ui.BorderSizePixel = 0
 Ui.Position = UDim2.new(0.464400113, 0, 0.604000032, 0)
 Ui.Size = UDim2.new(0, 61, 0, 61)
-Ui.Visible = false
+Ui.Visible = true
 
 UICorner_9.CornerRadius = UDim.new(0, 10)
 UICorner_9.Parent = Ui
