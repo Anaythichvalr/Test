@@ -262,17 +262,14 @@ local fadeTweenInfo = TweenInfo.new(
 	fadeTween.Completed:Wait()
 end
 
-fadeIn(frame1, fadeTime1, "BackgroundTransparency")
-	wait(waitTimeAfterFade1)
-	wait(0.1)
-	textLabel.Visible = true
-	Tab.Visible = true
-	HouseOfTab.Visible = true
-	SettingOfTab.Visible = true
-	Select.Visible = true
-	Hello.Visible = true
-	uiOfMenu.Enabled = true
-	Welcome.Visible = true
-	fadeIn(imageLabel, fadeTime2, "ImageTransparency")
-	fadeIn(frame2, 0.01, "BackgroundTransparency")
-	fadeIn(uiStroke, 0.3, "Transparency")
+fadeIn(Ui, 1, "BackgroundTransparency")
+wait(0.1)
+textLabel.Visible = true
+Tab.Visible = true
+HouseOfTab.Visible = true
+SettingOfTab.Visible = true
+Select.Visible = true
+Hello.Visible = true
+uiOfMenu.Enabled = true
+Welcome.Visible = true
+fadeIn(BendruImage, 1,"ImageTransparency")
