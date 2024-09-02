@@ -150,3 +150,119 @@ ButtonOfHouse.BorderSizePixel = 0
 ButtonOfHouse.Position = UDim2.new(0.445974588, 0, 0.388157904, 0)
 ButtonOfHouse.Size = UDim2.new(0, 45, 0, 40)
 ButtonOfHouse.SizeConstraint = Enum.SizeConstraint.RelativeXX
+ButtonOfHouse.ZIndex = 3
+ButtonOfHouse.Text = " "
+ButtonOfHouse.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonOfHouse.TextSize = 14.000
+
+UICorner_6.CornerRadius = UDim.new(0, 9)
+UICorner_6.Parent = ButtonOfHouse
+
+ButtonOfSetting.Name = "ButtonOfSetting"
+ButtonOfSetting.Parent = Bendru
+ButtonOfSetting.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonOfSetting.BackgroundTransparency = 1.000
+ButtonOfSetting.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ButtonOfSetting.BorderSizePixel = 0
+ButtonOfSetting.Position = UDim2.new(0.445974588, 0, 0.472697854, 0)
+ButtonOfSetting.Size = UDim2.new(0, 45, 0, 40)
+ButtonOfSetting.SizeConstraint = Enum.SizeConstraint.RelativeXX
+ButtonOfSetting.ZIndex = 3
+ButtonOfSetting.Text = " "
+ButtonOfSetting.TextColor3 = Color3.fromRGB(0, 0, 0)
+ButtonOfSetting.TextSize = 14.000
+
+UICorner_7.CornerRadius = UDim.new(0, 9)
+UICorner_7.Parent = ButtonOfSetting
+
+Select.Name = "Select"
+Select.Parent = Bendru
+Select.AnchorPoint = Vector2.new(0.5, 0.5)
+Select.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Select.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Select.Position = UDim2.new(0.461875051, 0, 0.470588267, 0)
+Select.Size = UDim2.new(0, 43, 0, 4)
+
+UICorner_8.Parent = Select
+
+Hello.Name = "Hello"
+Hello.Parent = Bendru
+Hello.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hello.BackgroundTransparency = 1.000
+Hello.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Hello.BorderSizePixel = 0
+Hello.Position = UDim2.new(0.318000019, 0, 0.0410000011, 0)
+Hello.Size = UDim2.new(0, 302, 0, 24)
+Hello.Font = Enum.Font.GothamBold
+Hello.Text = "BENDRU"
+Hello.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hello.TextSize = 30.000
+Hello.TextWrapped = true
+
+Welcome.Name = "Welcome"
+Welcome.Parent = Bendru
+Welcome.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Welcome.BackgroundTransparency = 1.000
+Welcome.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Welcome.BorderSizePixel = 0
+Welcome.Position = UDim2.new(0.318000019, 0, 0.074000001, 0)
+Welcome.Size = UDim2.new(0, 302, 0, 19)
+Welcome.Font = Enum.Font.GothamMedium
+Welcome.Text = "Welcome!"
+Welcome.TextColor3 = Color3.fromRGB(0, 0, 0)
+Welcome.TextSize = 20.000
+Welcome.TextWrapped = true
+
+Ui.Name = "Ui"
+Ui.Parent = Bendru
+Ui.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Ui.BorderSizePixel = 0
+Ui.Position = UDim2.new(0.325000018, 0, 0.244000003, 0)
+Ui.Size = UDim2.new(0, 275, 0, 183)
+
+UICorner_9.Parent = Ui
+
+BendruImage.Name = "BendruImage"
+BendruImage.Parent = Bendru
+BendruImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BendruImage.BackgroundTransparency = 1.000
+BendruImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BendruImage.BorderSizePixel = 0
+BendruImage.Position = UDim2.new(0.41138193, 0, 0.270000011, 0)
+BendruImage.Size = UDim2.new(0, 150, 0, 110)
+BendruImage.Image = "http://www.roblox.com/asset/?id=18115346062"
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(170, 85, 255)), ColorSequenceKeypoint.new(0.10, Color3.fromRGB(170, 0, 127)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 85, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 170))}
+UIGradient_2.Parent = BendruImage
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(85, 170, 255)), ColorSequenceKeypoint.new(0.10, Color3.fromRGB(0, 170, 127)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(85, 255, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 170, 0))}
+UIGradient_3.Parent = Menu
+
+Ui.BackgroundTransparency = 1
+Menu.BackgroundTransparency = 1
+BendruImage.ImageTransparency = 1
+
+TurnMenu.Visible = false
+KaitunMode.Visible = false
+Menu.Visible = false
+
+local function fadeIn(instance, fadeTime,property)
+local fadeTweenInfo = TweenInfo.new(
+        fadeTime,
+                Enum.EasingStyle.Quad, 
+                Enum.EasingDirection.Out
+        )
+
+        local goal = {}
+        goal[property] = 0
+        local fadeTween = TweenService:Create(instance, fadeTweenInfo, goal)
+ fadeTween:Play()
+        fadeTween.Completed:Wait()
+end
+
+fadeIn(Ui, 1, "BackgroundTransparency")
+wait(0.1)
+KaitunMode.Visible = true
+Menu.Visible = true
+fadeIn(BendruImage, 1,"ImageTransparency")
