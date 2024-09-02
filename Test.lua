@@ -243,35 +243,3 @@ UIGradient_2.Parent = BendruImage
 
 UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient_3.Parent = ScreenGui
-
-Ui.BackgroundTransparency = 1
-BendruImage.ImageTransparency = 1
-KaitunMode.TextTransparency = 1
-
--- Khoảng cách di chuyển frame1 và frame2 sang bên trái
-local moveDistance = 100
-
--- Kích thước cuối cùng của frame2 khi kéo dãn
-local targetSizeX = 474
-local targetSizeY = frame2.Size.Y.Offset -- Giữ nguyên chiều cao hiện tại của frame2
-
-local moveTime = 1.2
-
-local function fadeIn(element, duration)
-    element.Visible = true
-    for i = 1, 0, -0.05 do
-        element.BackgroundTransparency = i
-        element.TextTransparency = i
-        element.ImageTransparency = i
-        wait(duration / 20)
-    end
-    element.BackgroundTransparency = 0
-    element.TextTransparency = 0
-    element.ImageTransparency = 0
-end
-
--- Fade in the 'Ui' first
-fadeIn(Ui, 1) -- Thời gian hiện dần là 2 giây
-
--- After 'Ui' has fully faded in, fade in 'Bendru'
-fadeIn(ImageBendru, 1)
