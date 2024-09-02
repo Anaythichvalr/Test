@@ -240,3 +240,20 @@ UIGradient_2.Parent = BendruImage
 
 UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.06, Color3.fromRGB(0, 0, 0)), ColorSequenceKeypoint.new(0.93, Color3.fromRGB(242, 242, 242)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))}
 UIGradient_3.Parent = Ui
+
+Ui.BackgroundTransparency = 1
+Menu.BackgroundTransparency = 1
+BendruImage.ImageTransparency = 1
+uiStroke.Transparency = 1
+	
+imageButton.Visible = false
+textLabel.Visible = false
+Tab.Visible = false
+HouseOfTab.Visible = false
+SettingOfTab.Visible = false
+Select.Visible = false
+button1OfTab.Visible = false
+button2OfTab.Visible = false
+Hello.Visible = false
+uiOfMenu.Enabled = false
+Welcome.Visible = false
