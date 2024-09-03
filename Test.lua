@@ -231,7 +231,7 @@ BendruImage.AnchorPoint = Vector2.new(0.5, 0.5)
 BendruImage.BackgroundTransparency = 1.000
 BendruImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BendruImage.BorderSizePixel = 0
-BendruImage.Position = UDim2.new(0.41138193, 0, 0.270000011, 0)
+BendruImage.Position = UDim2.new(0.505000018, 0, 0.444000003, 0)
 BendruImage.Size = UDim2.new(0, 150, 0, 110)
 BendruImage.Image = "http://www.roblox.com/asset/?id=18115346062"
 
