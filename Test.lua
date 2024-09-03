@@ -219,7 +219,7 @@ Ui.AnchorPoint = Vector2.new(0.5, 0.5)
 Ui.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
 Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Ui.BorderSizePixel = 0
-Ui.Position = UDim2.new(0.505000018, 0, 2.244000003, 0)
+Ui.Position = UDim2.new(0.505000018, 0, 0.044000003, 0)
 Ui.Size = UDim2.new(0, 275, 0, 183)
 
 UICorner_9.Parent = Ui
