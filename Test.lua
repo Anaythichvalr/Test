@@ -243,9 +243,7 @@ UIGradient_3.Parent = Menu
 
 Ui.BackgroundTransparency = 1
 Menu.BackgroundTransparency = 1
-BendruImage.ImageTransparency = 1
 
-TurnMenu.Visible = false
 KaitunMode.Visible = false
 Menu.Visible = false
 
