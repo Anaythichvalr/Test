@@ -227,6 +227,7 @@ UICorner_9.Parent = Ui
 BendruImage.Name = "BendruImage"
 BendruImage.Parent = Bendru
 BendruImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BendruImage.AnchorPoint = Vector2.new(0.5, 0.5)
 BendruImage.BackgroundTransparency = 1.000
 BendruImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BendruImage.BorderSizePixel = 0
@@ -262,8 +263,5 @@ local fadeTweenInfo = TweenInfo.new(
         fadeTween.Completed:Wait()
 end
 
-fadeIn(Ui, 1, "BackgroundTransparency")
-wait(0.1)
-KaitunMode.Visible = true
-Menu.Visible = true
+fadeIn(Ui, 0.5, "BackgroundTransparency")
 fadeIn(BendruImage, 1,"ImageTransparency")
