@@ -215,6 +215,7 @@ Welcome.TextWrapped = true
 
 Ui.Name = "Ui"
 Ui.Parent = Bendru
+Ui.AnchorPoint = Vector2.new(0.5, 0.5)
 Ui.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
 Ui.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Ui.BorderSizePixel = 0
