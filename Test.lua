@@ -232,7 +232,7 @@ BendruImage.BackgroundTransparency = 1.000
 BendruImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
 BendruImage.BorderSizePixel = 0
 BendruImage.Position = UDim2.new(0.505000018, 0, 0.444000003, 0)
-BendruImage.Size = UDim2.new(0, 150, 0, 110)
+BendruImage.Size = UDim2.new(1, 180, 0, 190)
 BendruImage.Image = "http://www.roblox.com/asset/?id=18115346062"
 
 UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(170, 85, 255)), ColorSequenceKeypoint.new(0.10, Color3.fromRGB(170, 0, 127)), ColorSequenceKeypoint.new(0.60, Color3.fromRGB(0, 85, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 170))}
