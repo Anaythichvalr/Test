@@ -1,6 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Vật tay bằng cặc HidePremium = false, SaveConfig = true, ConfigFolder = "Chich"})
+local Window = OrionLib:MakeWindow({Name = "Vật tay bằng chim", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 local ChinhTab = Window:MakeTab({
 	Name = "Chính",
