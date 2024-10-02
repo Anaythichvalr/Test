@@ -26,7 +26,7 @@ local RunService = game:GetService("RunService")
 local clicking = false
 
 ChinhTab:AddToggle({
-	Name = "This is a toggle!",
+	Name = "Click để cày vật chim",
 	Default = false,
 	Callback = function(Value)
 		clicking = Value
