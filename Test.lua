@@ -44,7 +44,7 @@ Tab:AddToggle({
     end    
 })
 
-local teleportToFirstPosition = true -- Bắt đầu với tọa độ đầu tiên
+local teleportPosition = 1 -- Bắt đầu với tọa độ đầu tiên
 
 -- Thêm nút gốc
 Tab:AddButton({
@@ -68,7 +68,7 @@ Tab:AddButton({
             local character = player.Character or player.CharacterAdded:Wait() -- Đảm bảo có nhân vật
             local humanoidRootPart = character:WaitForChild("HumanoidRootPart") -- Lấy HumanoidRootPart
             
-            if teleportToFirstPosition then
+            if teleportPosition == 1 then
                 -- Kích hoạt teleport đến địa điểm đầu tiên
                 game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
 
@@ -79,8 +79,8 @@ Tab:AddButton({
                 local firstPosition = Vector3.new(2759.06, -1.76, 595.52)
                 humanoidRootPart.CFrame = CFrame.new(firstPosition)
 
-                teleportToFirstPosition = false -- Chuyển sang tọa độ thứ hai
-            else
+                teleportPosition = 2 -- Chuyển sang tọa độ thứ hai
+            elseif teleportPosition == 2 then
                 -- Kích hoạt teleport đến địa điểm thứ hai
                 game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones.BunkerHideout.Interactables.Teleports.Locations.Spawn)
 
@@ -91,7 +91,19 @@ Tab:AddButton({
                 local secondPosition = Vector3.new(-3773.83, 4.20, -10354.26)
                 humanoidRootPart.CFrame = CFrame.new(secondPosition)
 
-                teleportToFirstPosition = true -- Quay lại tọa độ đầu tiên
+                teleportPosition = 3 -- Chuyển sang tọa độ thứ ba
+            elseif teleportPosition == 3 then
+                -- Kích hoạt teleport đến địa điểm thứ ba
+                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["14"].Interactables.Teleports.Locations.Spawn)
+
+                -- Đợi 2 giây trước khi di chuyển đến tọa độ thứ ba
+                wait(2)
+
+                -- Tọa độ thứ ba
+                local thirdPosition = Vector3.new(-461.95, 69.71, 3068.63)
+                humanoidRootPart.CFrame = CFrame.new(thirdPosition)
+
+                teleportPosition = 1 -- Quay lại tọa độ đầu tiên
             end
         end)
     end    
