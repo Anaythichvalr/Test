@@ -17,33 +17,14 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- Kiểm tra sự tồn tại của Packages, Knit và ToolService
 local Packages = ReplicatedStorage:WaitForChild("Packages", 10)
-if not Packages then
-    warn("Packages không tồn tại trong ReplicatedStorage")
-    return
-end
-
 local Knit = Packages:WaitForChild("Knit", 10)
-if not Knit then
-    warn("Knit không tồn tại trong Packages")
-    return
-end
-
 local Services = Knit:WaitForChild("Services", 10)
-if not Services then
-    warn("Services không tồn tại trong Knit")
-    return
-end
-
 local ToolService = Services:WaitForChild("ToolService", 10)
-if not ToolService then
-    warn("ToolService không tồn tại trong Services")
-    return
-end
 
 local clicking = false -- Biến kiểm soát việc auto-click
 
 Tab:AddToggle({
-    Name = "tập tạ bằng chim",
+    Name = "Auto Click để tập tạ",
     Default = false,
     Callback = function(Value)
         clicking = Value -- Cập nhật trạng thái toggle
