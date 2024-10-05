@@ -14,7 +14,7 @@ local AutoService = ReplicatedStorage.Packages.Knit.Services.AutoService
 local clicking = false -- Biến kiểm soát việc auto-click
 
 Tab:AddToggle({
-	Name = "tập tạ bằng chim"
+	Name = "tập tạ bằng chim",
 	Default = false,
 	Callback = function(Value)
 		clicking = Value -- Cập nhật trạng thái toggle
