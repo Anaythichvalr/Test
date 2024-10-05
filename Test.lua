@@ -47,7 +47,7 @@ Tab:AddToggle({
 Tab:AddButton({
     Name = "Dịch chuyển rồi mua đồ bằng chim",
     Callback = function()
-        print("button pressed")
+        print("idk")
 
         -- Tạo nút mới
         local newButton = Instance.new("TextButton") -- Tạo button mới
@@ -59,9 +59,12 @@ Tab:AddButton({
 
         -- Kích hoạt script khi bấm nút mới
         newButton.MouseButton1Click:Connect(function()
-            print("Dịch chuyển đến slime")
+            print("Dịch chuyển để mua slime")
+
+            -- Kích hoạt teleport
             game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
-            -- Hoặc di chuyển đến tọa độ cụ thể
+
+            -- Di chuyển nhân vật đến tọa độ cụ thể sau khi teleport
             local player = game.Players.LocalPlayer
             local character = player.Character or player.CharacterAdded:Wait() -- Đảm bảo có nhân vật
             local humanoidRootPart = character:WaitForChild("HumanoidRootPart") -- Lấy HumanoidRootPart
@@ -70,6 +73,7 @@ Tab:AddButton({
             local targetPosition = Vector3.new(2759.06, -1.76, 595.52)
 
             -- Di chuyển nhân vật đến tọa độ đích
+            wait(0.5) -- Chờ một chút trước khi di chuyển để đảm bảo teleport hoàn tất
             humanoidRootPart.CFrame = CFrame.new(targetPosition)
         end)
     end    
