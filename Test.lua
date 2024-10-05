@@ -15,7 +15,7 @@ local Tab = Window:MakeTab({
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
--- Kiểm tra nếu Packages và Knit tồn tại trước khi tiếp tục
+-- Kiểm tra sự tồn tại của Packages, Knit và ToolService
 local Packages = ReplicatedStorage:WaitForChild("Packages", 10)
 if not Packages then
     warn("Packages không tồn tại trong ReplicatedStorage")
@@ -34,9 +34,9 @@ if not Services then
     return
 end
 
-local AutoService = Services:WaitForChild("AutoService", 10)
-if not AutoService then
-    warn("AutoService không tồn tại trong Services")
+local ToolService = Services:WaitForChild("ToolService", 10)
+if not ToolService then
+    warn("ToolService không tồn tại trong Services")
     return
 end
 
@@ -52,8 +52,8 @@ Tab:AddToggle({
         if clicking then
             spawn(function()
                 while clicking do
-                    -- Gửi sự kiện AutoTraining tới server
-                    AutoService.RF.SetRejoin:InvokeServer("AutoTraining", {["TrainingType"] = "Biceps"})
+                    -- Gửi sự kiện onClick tới server
+                    ToolService.RE.onClick:FireServer()
 
                     -- Chờ một khoảng thời gian để tránh lag và anti-cheat phát hiện
                     wait(0.1) -- 0.1 giây mỗi lần gửi (bạn có thể điều chỉnh thời gian này)
