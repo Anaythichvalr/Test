@@ -44,8 +44,11 @@ Tab:AddToggle({
     end    
 })
 
+local teleportToFirstPosition = true -- Bắt đầu với tọa độ đầu tiên
+
+-- Thêm nút gốc
 Tab:AddButton({
-    Name = "Dịch chuyển rồi mua đồ bằng chim",
+    Name = "Button!",
     Callback = function()
         print("button pressed")
 
@@ -61,31 +64,35 @@ Tab:AddButton({
         newButton.MouseButton1Click:Connect(function()
             print("Dịch chuyển để mua slime")
 
-            -- Kích hoạt teleport đến địa điểm đầu tiên
-            game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
-
-            -- Đợi 2 giây trước khi di chuyển đến tọa độ đầu tiên
-            wait(2)
-
-            -- Di chuyển nhân vật đến tọa độ đầu tiên
             local player = game.Players.LocalPlayer
             local character = player.Character or player.CharacterAdded:Wait() -- Đảm bảo có nhân vật
             local humanoidRootPart = character:WaitForChild("HumanoidRootPart") -- Lấy HumanoidRootPart
+            
+            if teleportToFirstPosition then
+                -- Kích hoạt teleport đến địa điểm đầu tiên
+                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
 
-            -- Tọa độ đầu tiên
-            local firstPosition = Vector3.new(2759.06, -1.76, 595.52)
-            humanoidRootPart.CFrame = CFrame.new(firstPosition)
+                -- Đợi 2 giây trước khi di chuyển đến tọa độ đầu tiên
+                wait(2)
 
-            -- Kích hoạt teleport đến địa điểm thứ hai sau khi di chuyển
-            wait(3) -- Đợi 3 giây
-            game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones.BunkerHideout.Interactables.Teleports.Locations.Spawn)
+                -- Tọa độ đầu tiên
+                local firstPosition = Vector3.new(2759.06, -1.76, 595.52)
+                humanoidRootPart.CFrame = CFrame.new(firstPosition)
 
-            -- Đợi 3 giây trước khi di chuyển đến tọa độ thứ hai
-            wait(3)
+                teleportToFirstPosition = false -- Chuyển sang tọa độ thứ hai
+            else
+                -- Kích hoạt teleport đến địa điểm thứ hai
+                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones.BunkerHideout.Interactables.Teleports.Locations.Spawn)
 
-            -- Tọa độ thứ hai
-            local secondPosition = Vector3.new(-3773.83, 4.20, -10354.26)
-            humanoidRootPart.CFrame = CFrame.new(secondPosition)
+                -- Đợi 3 giây trước khi di chuyển đến tọa độ thứ hai
+                wait(3)
+
+                -- Tọa độ thứ hai
+                local secondPosition = Vector3.new(-3773.83, 4.20, -10354.26)
+                humanoidRootPart.CFrame = CFrame.new(secondPosition)
+
+                teleportToFirstPosition = true -- Quay lại tọa độ đầu tiên
+            end
         end)
     end    
 })
