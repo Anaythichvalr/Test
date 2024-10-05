@@ -13,11 +13,37 @@ local Tab = Window:MakeTab({
     PremiumOnly = false
 })
 
-local AutoService = ReplicatedStorage:WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("AutoService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Kiểm tra nếu Packages và Knit tồn tại trước khi tiếp tục
+local Packages = ReplicatedStorage:WaitForChild("Packages", 10)
+if not Packages then
+    warn("Packages không tồn tại trong ReplicatedStorage")
+    return
+end
+
+local Knit = Packages:WaitForChild("Knit", 10)
+if not Knit then
+    warn("Knit không tồn tại trong Packages")
+    return
+end
+
+local Services = Knit:WaitForChild("Services", 10)
+if not Services then
+    warn("Services không tồn tại trong Knit")
+    return
+end
+
+local AutoService = Services:WaitForChild("AutoService", 10)
+if not AutoService then
+    warn("AutoService không tồn tại trong Services")
+    return
+end
+
 local clicking = false -- Biến kiểm soát việc auto-click
 
 Tab:AddToggle({
-    Name = "tập tạ bằng chim", -- Thiếu dấu phẩy ở đây
+    Name = "tập tạ bằng chim",
     Default = false,
     Callback = function(Value)
         clicking = Value -- Cập nhật trạng thái toggle
