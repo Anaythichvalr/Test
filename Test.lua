@@ -24,7 +24,7 @@ local ToolService = Services:WaitForChild("ToolService", 10)
 local clicking = false -- Biến kiểm soát việc auto-click
 
 Tab:AddToggle({
-    Name = "Auto Click để tập tạ",
+    Name = "Tự động vật tất cả chim",
     Default = false,
     Callback = function(Value)
         clicking = Value -- Cập nhật trạng thái toggle
