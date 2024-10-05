@@ -45,7 +45,7 @@ Tab:AddToggle({
 })
 
 Tab:AddButton({
-    Name = "Button!",
+    Name = "Dịch chuyển rồi mua đồ bằng chim",
     Callback = function()
         print("button pressed")
 
