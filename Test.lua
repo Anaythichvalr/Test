@@ -43,3 +43,34 @@ Tab:AddToggle({
         end
     end    
 })
+
+Tab:AddButton({
+    Name = "Button!",
+    Callback = function()
+        print("button pressed")
+
+        -- Tạo nút mới
+        local newButton = Instance.new("TextButton") -- Tạo button mới
+        newButton.Text = "Dịch chuyển để mua slime" -- Đặt chữ cho nút
+        newButton.Size = UDim2.new(0, 200, 0, 50) -- Kích thước của nút
+        newButton.Position = UDim2.new(1, -220, 0, 10) -- Đặt vị trí nút gần trên cùng bên phải
+        newButton.BackgroundColor3 = Color3.new(1, 1, 1) -- Màu nền của nút
+        newButton.Parent = game.Players.LocalPlayer.PlayerGui.ScreenGui -- Đặt nút vào GUI của người chơi
+
+        -- Kích hoạt script khi bấm nút mới
+        newButton.MouseButton1Click:Connect(function()
+            print("Dịch chuyển đến slime")
+            game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
+            -- Hoặc di chuyển đến tọa độ cụ thể
+            local player = game.Players.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait() -- Đảm bảo có nhân vật
+            local humanoidRootPart = character:WaitForChild("HumanoidRootPart") -- Lấy HumanoidRootPart
+
+            -- Tọa độ đích
+            local targetPosition = Vector3.new(2759.06, -1.76, 595.52)
+
+            -- Di chuyển nhân vật đến tọa độ đích
+            humanoidRootPart.CFrame = CFrame.new(targetPosition)
+        end)
+    end    
+})
