@@ -44,67 +44,39 @@ Tab:AddToggle({
     end    
 })
 
-local teleportPosition = 1 -- Bắt đầu với tọa độ đầu tiên
+-- Định nghĩa tất cả các zone và tọa độ
+local teleportLocations = {
+    {zone = "13", coords = Vector3.new(2759.06, -1.76, 595.52)},
+    {zone = "BunkerHideout", coords = Vector3.new(-3773.83, 4.20, -10354.26)},
+    {zone = "14", coords = Vector3.new(-461.95, 69.71, 3068.63)},
+    {zone = "Wasteland", coords = Vector3.new(-5313.16, 35.37, -10348.71)},
+    {zone = "12", coords = Vector3.new(2876.66, -4.39, -4100.49)},
+    {zone = "11", coords = Vector3.new(1719.76, -10.30, 2306.81)},
+    {zone = "10", coords = Vector3.new(-6260.08, -97.83, -1606.85)}
+}
 
--- Thêm nút gốc
+-- Biến giữ vị trí hiện tại
+local currentIndex = 1
+
+-- Hàm dịch chuyển đến vị trí tiếp theo
+local function teleportToNextLocation()
+    local location = teleportLocations[currentIndex]
+    
+    -- Dịch chuyển đến zone trước
+    game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones[location.zone].Interactables.Teleports.Locations.Spawn)
+    
+    -- Chờ 3 giây trước khi dịch chuyển đến tọa độ cụ thể
+    wait(3)
+    
+    -- Dịch chuyển đến tọa độ
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(location.coords)
+    
+    -- Chuyển sang vị trí tiếp theo, nếu đến cuối danh sách thì quay lại đầu
+    currentIndex = currentIndex % #teleportLocations + 1
+end
+
+-- Nút để kích hoạt dịch chuyển
 Tab:AddButton({
-    Name = "Button!",
-    Callback = function()
-        print("button pressed")
-
-        -- Tạo nút mới
-        local newButton = Instance.new("TextButton") -- Tạo button mới
-        newButton.Text = "Dịch chuyển để mua slime" -- Đặt chữ cho nút
-        newButton.Size = UDim2.new(0, 200, 0, 50) -- Kích thước của nút
-        newButton.Position = UDim2.new(1, -220, 0, 10) -- Đặt vị trí nút gần trên cùng bên phải
-        newButton.BackgroundColor3 = Color3.new(1, 1, 1) -- Màu nền của nút
-        newButton.Parent = game.Players.LocalPlayer.PlayerGui.ScreenGui -- Đặt nút vào GUI của người chơi
-
-        -- Kích hoạt script khi bấm nút mới
-        newButton.MouseButton1Click:Connect(function()
-            print("Dịch chuyển để mua slime")
-
-            local player = game.Players.LocalPlayer
-            local character = player.Character or player.CharacterAdded:Wait() -- Đảm bảo có nhân vật
-            local humanoidRootPart = character:WaitForChild("HumanoidRootPart") -- Lấy HumanoidRootPart
-            
-            if teleportPosition == 1 then
-                -- Kích hoạt teleport đến địa điểm đầu tiên
-                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["13"].Interactables.Teleports.Locations.Spawn)
-
-                -- Đợi 2 giây trước khi di chuyển đến tọa độ đầu tiên
-                wait(2)
-
-                -- Tọa độ đầu tiên
-                local firstPosition = Vector3.new(2759.06, -1.76, 595.52)
-                humanoidRootPart.CFrame = CFrame.new(firstPosition)
-
-                teleportPosition = 2 -- Chuyển sang tọa độ thứ hai
-            elseif teleportPosition == 2 then
-                -- Kích hoạt teleport đến địa điểm thứ hai
-                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones.BunkerHideout.Interactables.Teleports.Locations.Spawn)
-
-                -- Đợi 3 giây trước khi di chuyển đến tọa độ thứ hai
-                wait(3)
-
-                -- Tọa độ thứ hai
-                local secondPosition = Vector3.new(-3773.83, 4.20, -10354.26)
-                humanoidRootPart.CFrame = CFrame.new(secondPosition)
-
-                teleportPosition = 3 -- Chuyển sang tọa độ thứ ba
-            elseif teleportPosition == 3 then
-                -- Kích hoạt teleport đến địa điểm thứ ba
-                game:GetService("ReplicatedStorage").Packages.Knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["14"].Interactables.Teleports.Locations.Spawn)
-
-                -- Đợi 2 giây trước khi di chuyển đến tọa độ thứ ba
-                wait(2)
-
-                -- Tọa độ thứ ba
-                local thirdPosition = Vector3.new(-461.95, 69.71, 3068.63)
-                humanoidRootPart.CFrame = CFrame.new(thirdPosition)
-
-                teleportPosition = 1 -- Quay lại tọa độ đầu tiên
-            end
-        end)
-    end    
+    Name = "Dịch chuyển rồi mua đồ bằng chim",
+    Callback = teleportToNextLocation    
 })
