@@ -56,7 +56,7 @@ local teleportLocations = {
 local currentIndex = 1
 
 Tab:AddButton({
-    Name = "Button!",
+    Name = "Dịch chuyển rồi mua đồ bằng chim",
     Callback = function()
         -- Tạo button mới sau khi nhấn button đầu tiên
         local newButton = Instance.new("TextButton")
