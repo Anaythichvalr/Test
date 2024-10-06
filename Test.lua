@@ -57,6 +57,7 @@ local teleportLocations = {
 
 -- Biến giữ vị trí hiện tại
 local currentIndex = 1
+local slimeButtonCreated = false
 
 -- Hàm dịch chuyển đến vị trí tiếp theo
 local function teleportToNextLocation()
@@ -75,8 +76,17 @@ local function teleportToNextLocation()
     currentIndex = currentIndex % #teleportLocations + 1
 end
 
--- Nút để kích hoạt dịch chuyển
+-- Tạo button ban đầu
 Tab:AddButton({
-    Name = "Dịch chuyển rồi mua đồ bằng chim",
-    Callback = teleportToNextLocation    
+    Name = "Dịch chuyển rồi mua bằng chim",
+    Callback = function()
+        -- Nếu nút slime chưa được tạo, tạo nút mới
+        if not slimeButtonCreated then
+            Tab:AddButton({
+                Name = "Dịch chuyển rồi mua slime bằng chim",
+                Callback = teleportToNextLocation
+            })
+            slimeButtonCreated = true
+        end
+    end
 })
