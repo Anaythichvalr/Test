@@ -78,15 +78,22 @@ end
 
 -- Tạo button ban đầu
 Tab:AddButton({
-    Name = "Dịch chuyển rồi mua bằng chim",
+    Name = "Dịch chuyển rồi mua đồ bằng chim",
     Callback = function()
-        -- Nếu nút slime chưa được tạo, tạo nút mới
+        -- Kiểm tra nếu button dịch chuyển chưa được tạo
         if not slimeButtonCreated then
-            Tab:AddButton({
-                Name = "Dịch chuyển rồi mua slime bằng chim",
-                Callback = teleportToNextLocation
-            })
-            slimeButtonCreated = true
+            -- Tạo button mới xuất hiện ở góc bên phải gần trên
+            local newButton = Instance.new("TextButton")
+            newButton.Parent = game.CoreGui -- Đặt button vào CoreGui để hiển thị
+            newButton.Size = UDim2.new(0, 200, 0, 50) -- Kích thước button
+            newButton.Position = UDim2.new(1, -210, 0, 10) -- Vị trí ở góc bên phải gần trên
+            newButton.Text = "Dịch chuyển rồi mua slime bằng chim"
+            newButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Màu nền xanh lá
+
+            -- Kích hoạt chức năng dịch chuyển khi nhấn button
+            newButton.MouseButton1Click:Connect(teleportToNextLocation)
+
+            slimeButtonCreated = true -- Đánh dấu là button đã được tạo
         end
     end
 })
